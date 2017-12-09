@@ -21,21 +21,27 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
+#
+# This script adds the content of a given input file (e.g., a license) 
+# at the beggining of each file matching a given file extension (e.g., .java).
+# It start from the specified root directory (e.g., '.') and performs this 
+# recursively
+#
 
 import sys
 import os
-import glob
 
+if len(sys.argv) < 2:
+	print ("Usage: %s license_file [root_dir] [file_extension]" % sys.argv[0])
+	sys.exit(1)
 
 file_a = sys.argv[1]
-file_b = sys.argv[2]
-file_out = sys.argv[3]
 rootdir='.'
 file_extension = '.java'
 
-if len(sys.argv) > 1:
-	rootdir = sys.argv[2]
 if len(sys.argv) > 2:
+	rootdir = sys.argv[2]
+if len(sys.argv) > 3:
 	file_extension = sys.argv[3]
 
 with open (file_a, "r") as a:
