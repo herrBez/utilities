@@ -58,5 +58,5 @@ with open (file_a, "r") as a:
 					string_b = ''.join(lines_b)
 					b.close()
 				with open(file_path, "w") as out:
-					out.write(string_a + string_b)
+					out.write(string_a + "\n" + string_b)
 					out.close()
